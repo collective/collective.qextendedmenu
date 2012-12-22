@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.qextendedmenu">
+
+    <!-- override viewlet now -->
+    <browser:viewlet
+      name="plone.global_sections"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".ExtendedGlobalSectionsViewlet"
+      layer="collective.qextendedmenu.interfaces.ILayer"
+      permission="zope2.View"
+      />
+
+    <!-- be more specific -->
+    <browser:page
+        name="qextendedmenu-settings"
+        for="*"
+        class=".forms.ExtendedMenuSettingsView"
+        layer="collective.qextendedmenu.interfaces.ILayer"
+        permission="collective.qextendedmenu.ManageMenuSettings" />
+
+    <browser:page
+        name="qextendedmenu_util"
+        for="*"
+        permission="zope2.View"
+        allowed_interface="collective.qextendedmenu.interfaces.IExtendedMenuUtil"
+        layer="collective.qextendedmenu.interfaces.ILayer"
+        class=".utils.ExtendedMenuUtil" />
+
+    <browser:resourceDirectory
+        name="qextendedmenu.resources"
+        directory="files"
+    />
+
+</configure>

@@ -1,0 +1,41 @@
+
+#portal-globalnav ul li a {
+    border-top: none;
+    border-right: none;
+}
+
+#portal-globalnav li > div.drop {
+    display:none;
+    left:0;
+    position:absolute;
+    top:100%;
+    z-index:1000;
+}
+
+#portal-globalnav li:hover > div.drop,
+#portal-globalnav li:hover > div.drop > ul {
+    display:block;
+}
+
+#portal-globalnav li div.drop > ul{
+    top:0;
+    float: left;
+    width: 15em;
+    position: static;
+}
+
+#portal-globalnav > li > div.drop {
+    background-color: #DDD;
+    width: 35em;
+}
+
+#portal-globalnav > li > div.drop div.static{
+    float: left;
+    width: 15em;
+    padding: 10px;
+}
+
+#portal-globalnav ul li a.hasChildrens,
+#portal-globalnav ul li a.hasChildrens:hover {
+    background-image: none;
+}

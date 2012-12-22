@@ -1,0 +1,31 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.qextendedmenu">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <permission
+    id="collective.qextendedmenu.ManageMenuSettings"
+    title="collective.qextendedmenu: Manage menu settings"
+    />
+
+  <include package="quintagroup.dropdownmenu" />
+  <include package=".browser" />
+
+  <adapter 
+    for="Products.CMFCore.interfaces._content.IContentish"
+    provides="collective.qextendedmenu.interfaces.IExtendedMenuSettings"
+    factory="collective.qextendedmenu.settings.ExtendedMenuSettings" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.qextendedmenu"
+      directory="profiles/default"
+      description="Installs the collective.qextendedmenu package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+</configure>
