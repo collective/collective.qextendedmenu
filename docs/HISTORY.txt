@@ -1,9 +1,10 @@
 Changelog
 =========
 
-1.0a2 (unreleased)
+1.0a2 (2013-01-04)
 ------------------
 
+- include plone.app.textfield in zcml
 
 1.0a1 (2012-12-22)
 ------------------

@@ -23,6 +23,6 @@ How it works
 5) select "Show Menu Text" checkbox and fill out html you would like
 6) hit "Apply"
 
-*this also assumed you already have sub-menu items in folder you're
- applying it to*
+this also assumed you already have sub-menu items in folder you're
+ applying it to
 
