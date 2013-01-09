@@ -2,6 +2,10 @@ from collective.qextendedmenu.interfaces import IExtendedMenuSettings
 from persistent.dict import PersistentDict
 from zope.annotation.interfaces import IAnnotations
 from zope.interface import implements
+from lxml import etree
+from lxml import html
+from urlparse import urljoin
+from plone.app.textfield.interfaces import ITransformer, IRichTextValue
 
 
 class ExtendedMenuSettings(object):
@@ -15,7 +19,7 @@ class ExtendedMenuSettings(object):
 
     settings_key = 'collective.qextendedmenu'
 
-    def __init__(self, context):
+    def __init__(self, context, req=None):
         self.context = context
         annotations = IAnnotations(self.context)
 
@@ -29,6 +33,18 @@ class ExtendedMenuSettings(object):
             self.__dict__[name] = value
         else:
             self._metadata[name] = value
+
+    def getValue(self, name):
+        value = getattr(self, name, None)
+        if name == 'html' and IRichTextValue.providedBy(value):
+            if value.mimeType == value.outputMimeType:
+                return self.raw_encoded
+            else:
+                transformer = ITransformer(self.context, None)
+                if transformer is None:
+                    return None
+                return transformer(value, value.outputMimeType)
+        return value
 
     def __getattr__(self, name):
         value = self._metadata.get(name)

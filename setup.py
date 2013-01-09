@@ -27,7 +27,8 @@ setup(name='collective.qextendedmenu',
           'setuptools',
           'quintagroup.dropdownmenu',
           'plone.app.z3cform',
-          'plone.app.textfield'
+          'plone.app.textfield',
+          'lxml'
       ],
       entry_points="""
       # -*- Entry points: -*-

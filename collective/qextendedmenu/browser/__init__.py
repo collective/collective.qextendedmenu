@@ -13,10 +13,10 @@ class ExtendedGlobalSectionsViewlet(GlobalSectionsViewlet):
         for item in results:
             brain = item['item']
             obj = brain.getObject()
-            settings = ExtendedMenuSettings(obj)
+            settings = ExtendedMenuSettings(obj, self.request)
             if settings.show:
                 item['show_static'] = True
-                item['static_html'] = settings.html.output
+                item['static_html'] = settings.getValue('html')
             else:
                 item['show_static'] = False
                 item['static_html'] = u''

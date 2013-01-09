@@ -4,6 +4,8 @@ Changelog
 1.0a3 (unreleased)
 ------------------
 
+- transform html correctly
+
 
 1.0a2 (2013-01-04)
 ------------------
