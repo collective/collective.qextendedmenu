@@ -20,4 +20,6 @@ class ExtendedGlobalSectionsViewlet(GlobalSectionsViewlet):
             else:
                 item['show_static'] = False
                 item['static_html'] = u''
+            item['static_align'] = settings.html_align
+            item['menu_align'] = settings.menu_align
         return results

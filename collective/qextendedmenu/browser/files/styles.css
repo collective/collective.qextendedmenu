@@ -39,3 +39,8 @@
 #portal-globalnav ul li a.hasChildrens:hover {
     background-image: none;
 }
+
+#portal-globalnav > li.right > div.drop{
+    left: inherit;
+    right: 0;
+}
