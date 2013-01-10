@@ -26,10 +26,3 @@ How it works
 this also assumed you already have sub-menu items in folder you're
  applying it to
 
-
-TODO
-----
-
-- handle left alignment of static text
-- handle right alignment of menu
-- handle links that are relative
