@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0a3 (unreleased)
+1.0a3 (2013-01-09)
 ------------------
 
 - be able to left align html text
