@@ -1,6 +1,7 @@
 <tal:master define="level options/level|python:0;
                     children options/children | nothing;
-                    plonefour view/is_plone_four"
+                    plonefour view/is_plone_four;
+                    empty string:;"
             i18n:domain="plone">
 
 <metal:main define-macro="sections_main">
@@ -15,7 +16,7 @@
                 li_extr_class   python:(is_in_path and not is_current) and 'selected' or '';
                 li_extr_class   python:(not (is_in_path or is_current)) and li_extr_class + 'plain' or li_extr_class;
                 item_type       node/normalized_portal_type | nothing;
-                li_class string:${li_curr_class}${li_extr_class} ${node/menu_align|nothing};
+                li_class string:${li_curr_class}${li_extr_class} ${node/menu_align|empty};
                 li_class python:children and li_class or li_class"
     tal:attributes="class string:$li_class">
 
@@ -36,7 +37,7 @@
     </a>
     
     <div class="drop" tal:omit-tag="not: node/show_static|nothing"
-         tal:attributes="class string:drop ${node/static_align|nothing}">
+         tal:attributes="class string:drop ${node/static_align|empty}">
         <ul tal:attributes="class ulclass"
             tal:condition="python: len(children) > 0 and show_children">
             <li tal:replace="structure python:view.recurse(children=children, level=level+1)">

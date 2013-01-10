@@ -44,3 +44,23 @@
     left: inherit;
     right: 0;
 }
+
+#portal-globalnav li div.drop.left > ul {
+    float: right;
+}
+
+#portal-globalnav li ul {
+    display: inherit;
+    left: inherit;
+    position: inherit;
+    top: inherit;
+    z-index: inherit;
+}
+
+#portal-globalnav > li > ul {
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
