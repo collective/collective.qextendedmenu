@@ -9,6 +9,9 @@
 <li tal:define="show_children   node/show_children;
                 children        node/children;
                 item_url        node/getURL;
+                item_remote_url node/getRemoteUrl|nothing;
+                link_remote     node/link_remote|nothing;
+                item_url        python:link_remote and item_remote_url or item_url;
                 item_icon       node/item_icon;
                 is_current      node/currentItem;
                 is_in_path      node/currentParent;
